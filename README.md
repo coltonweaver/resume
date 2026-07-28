@@ -50,7 +50,7 @@ second page, either trim content or reclaim space via the `\vspace` values in
 the custom commands near the top of `cbw_resume.tex` (`\resumeItem`,
 `\resumeSubheading`, `\resumeItemListEnd`).
 
-Two things worth knowing before editing:
+A few things worth knowing before editing:
 
 - `\resumeLink` wraps its text in `\underline`, which boxes the argument — a
   linked phrase will never break across lines.
