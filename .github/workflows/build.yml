@@ -1,0 +1,42 @@
+name: Build resume
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cbw_resume.tex
+          latexmk_shell_escape: false
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cbw_resume
+          path: cbw_resume.pdf
+
+      # Publish to a rolling "latest" release so the download URL is stable:
+      # https://github.com/coltonweaver/resume/releases/latest/download/cbw_resume.pdf
+      - name: Publish to latest release
+        if: github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view latest --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
+            gh release create latest --repo "$GITHUB_REPOSITORY" \
+              --title "Latest resume" \
+              --notes "Automatically built from the latest commit on master."
+          gh release upload latest cbw_resume.pdf --repo "$GITHUB_REPOSITORY" --clobber
