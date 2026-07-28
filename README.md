@@ -44,11 +44,11 @@ intentionally diverged since — see the history.
 
 ## Layout notes
 
-The resume is tuned to fit on exactly one page, and as of the latest content it
-has only ~4pt of vertical slack. Adding more than a line or two will push
-Technical Skills onto a second page. When that happens, either trim content or
-reclaim space via the `\vspace` values in the custom commands near the top of
-`cbw_resume.tex` (`\resumeItem`, `\resumeSubheading`, `\resumeItemListEnd`).
+The resume is tuned to fit on exactly one page, with roughly 17pt of vertical
+slack as of the latest content. If an addition pushes Technical Skills onto a
+second page, either trim content or reclaim space via the `\vspace` values in
+the custom commands near the top of `cbw_resume.tex` (`\resumeItem`,
+`\resumeSubheading`, `\resumeItemListEnd`).
 
 Two things worth knowing before editing:
 
@@ -57,3 +57,5 @@ Two things worth knowing before editing:
 - A `\vspace` immediately after `\end{center}` starts a new paragraph and adds a
   full baselineskip. Fold header spacing changes into the `\vspace` after the
   name instead.
+- Keep linked phrases short. A long `\resumeLink` that lands on its own line
+  renders as a near-full-width underline that reads as a stray horizontal rule.
