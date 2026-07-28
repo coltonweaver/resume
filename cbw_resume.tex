@@ -31,7 +31,7 @@
 % Custom commands
 %-------------------------------------------------------------------------------
 \newcommand{\resumeItem}[2]{%
-  \item\small{\textbf{#1}{: #2 \vspace{-3pt}}}%
+  \item\small{\textbf{#1}{: #2 \vspace{-2pt}}}%
 }
 
 % {Organization}{Location}{Role}{Dates}
@@ -40,7 +40,7 @@
   \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
     \textbf{#1} & #2 \\
     \textit{\small#3} & \textit{\small #4} \\
-  \end{tabular*}\vspace{-6pt}%
+  \end{tabular*}\vspace{-5pt}%
 }
 
 % Skills entries sit at \normalsize, unlike the \small experience bullets
@@ -55,14 +55,14 @@
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------------------------------------------
 \begin{document}
 
 %----------HEADING-----------------
 \begin{center}
-  {\Huge \textbf{Colton Weaver}} \\ \vspace{6pt}
+  {\Huge \textbf{Colton Weaver}} \\ \vspace{9.3pt}
   \small
   \faLinkedin\ \resumeLink{https://www.linkedin.com/in/colton-weaver/}{linkedin.com/in/colton-weaver}
   \faIcon[solid]{envelope}\ \resumeLink{mailto:me@coltonweaver.com}{me@coltonweaver.com}
@@ -88,7 +88,7 @@
       \resumeItem{Stripe Organizations}
         {Key Contributor to the Stripe Organizations product announced at Sessions 2024 and made generally available at Sessions 2025, a multi-year effort to allow Stripe users with multiple Merchant accounts to manage their Stripe integrations from a single Organization abstraction. Assisted in growing the product from zero users in 2023 to over 100,000 by 2026.}
       \resumeItem{Stripe Customer and Payment Method Sharing for Organizations}
-        {Designed and led the implementation of a system powered by the Compartments Graph service to allow merchants within an Organization to \resumeLink{https://docs.stripe.com/get-started/account/orgs/sharing/customers-payment-methods}{share Customers and Payment Methods with other merchants in that Organization.}}
+        {Designed and led the implementation of a system powered by the Compartments Graph service to allow merchants within an Organization to \resumeLink{https://docs.stripe.com/get-started/account/orgs/sharing/customers-payment-methods}{share Customers and Payment Methods} with other merchants in that Organization.}
       \resumeItem{Compartments Graph Service}
         {Key Contributor to the design and implementation of the Compartments Graph service, which is responsible for the relational data of merchants within Stripe and the Organizations that they are a part of. The data powers the Organizations product experience and AuthZ/AuthN flows of Stripe as well as other portions of the Stripe Network.}
       \resumeItem{Migration from Aurora Postgres to MongoDB}
@@ -98,25 +98,13 @@
     \resumeItemListEnd
 
   \resumeSubheading
-    {Amazon Web Services -- AWS Lambda}{Seattle, WA}
-    {Software Development Engineer II}{Dec. 2020 -- Feb. 2022}
+    {Amazon Web Services -- AWS Lambda, Amazon API Gateway}{Seattle, WA}
+    {Software Development Engineer I, II}{Mar. 2019 -- Feb. 2022}
     \resumeItemListStart
-      \resumeItem{Lambda Sandbox Assignment Service}
-        {Key Contributor to the highly available, low latency Rust service that orchestrates the creation and the lifecycle of Lambda Sandbox resources for invocations to Lambda functions. The service was capable of handling over 50,000 requests per second per host (tens of millions of RPS globally) with an SLA below 10 milliseconds. The service was leader-elected where sandbox state was written to a journal that was replicated by followers to ensure that primary failovers maintained a durable snapshot of all sandboxes.}
-      \resumeItem{Lambda Function Concurrency-Based Scaling}
-        {Designed and implemented the mechanism used by the Lambda Sandbox Assignment Service to enable concurrency-based scaling for user Lambda functions.}
-    \resumeItemListEnd
-
-  \resumeSubheading
-    {Amazon Web Services -- Amazon API Gateway}{Seattle, WA}
-    {Software Development Engineer I}{Mar. 2019 -- Dec. 2020}
-    \resumeItemListStart
-      \resumeItem{Backplane Execution Service}
-        {Contributed to the primary service powering the backend of the API Gateway execute API.}
-      \resumeItem{Wildcard Custom Domains}
-        {Shipped a customer-facing feature that enabled users to front their APIs with a wildcard custom domain and expose the provided prefix as a variable for usage in the API Gateway logic.}
-      \resumeItem{Operations Daemon}
-        {Designed and implemented an on-host daemon that monitored for specific system conditions and retrieved thread dumps and profile snapshots for operational debugging.}
+      \resumeItem{AWS Lambda -- Sandbox Assignment Service}
+        {Key Contributor to the highly available, low latency Rust service that orchestrates the creation and lifecycle of Lambda Sandbox resources for function invocations, handling over 50,000 requests per second per host (tens of millions of RPS globally) with an SLA below 10 milliseconds. The service was leader-elected, journaling sandbox state and replicating it to followers so that primary failovers maintained a durable snapshot of all sandboxes. Also designed and implemented the mechanism it uses to enable concurrency-based scaling for user Lambda functions.}
+      \resumeItem{Amazon API Gateway}
+        {Contributed to the Backplane Execution Service powering the backend of the execute API. Shipped wildcard custom domains, letting customers front their APIs with a wildcard domain and expose the provided prefix as a variable for usage in API Gateway logic. Designed and implemented an on-host operations daemon that monitored for specific system conditions and retrieved thread dumps and profile snapshots for operational debugging.}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd
