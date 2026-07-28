@@ -31,24 +31,29 @@ make clean    # remove build artifacts
 
 ## Provenance
 
-This source was reconstructed from the previously published
-`cbw_resume.pdf` (built June 2025 with pdfTeX 1.40.26), which had no source in
-version control. The reconstruction was verified by extracting every text line
-and its bounding box from both PDFs and diffing them: all 56 lines match in
-content and position, with the sole exception of the header contact line, which
-is 3.3pt narrower here because FontAwesome5 glyph metrics changed slightly
-between TeX Live 2024 (original) and later releases.
+This source was reconstructed from the previously published `cbw_resume.pdf`
+(built June 2025 with pdfTeX 1.40.26), which had no source in version control.
+The reconstruction was verified by extracting every text line and its bounding
+box from both PDFs and diffing them: all 56 lines matched in content and
+position, with the sole exception of the header contact line, which is 3.3pt
+narrower because FontAwesome5 glyph metrics changed slightly between TeX Live
+2024 (original) and later releases.
 
-### Known issues carried over from the original
+That byte-for-line equivalence holds at the initial commit. Content has
+intentionally diverged since — see the history.
 
-These are reproduced faithfully rather than silently corrected — fix when
-convenient:
+## Layout notes
 
-- "Designed **an** implemented an on-host daemon" (Operations Daemon) should
-  read "and implemented".
-- `"Settings Framework"` uses straight quotes in the source, so both render as
-  closing curly quotes (`”Settings Framework”`). Use `` ``Settings Framework'' ``
-  for correct typography.
-- The title reads "Senior Software Engineer" while coltonweaver.com says "Staff
-  Software Engineer".
-- Date separators are inconsistent: Experience uses `-`, Education uses `--`.
+The resume is tuned to fit on exactly one page, and as of the latest content it
+has only ~4pt of vertical slack. Adding more than a line or two will push
+Technical Skills onto a second page. When that happens, either trim content or
+reclaim space via the `\vspace` values in the custom commands near the top of
+`cbw_resume.tex` (`\resumeItem`, `\resumeSubheading`, `\resumeItemListEnd`).
+
+Two things worth knowing before editing:
+
+- `\resumeLink` wraps its text in `\underline`, which boxes the argument — a
+  linked phrase will never break across lines.
+- A `\vspace` immediately after `\end{center}` starts a new paragraph and adds a
+  full baselineskip. Fold header spacing changes into the `\vspace` after the
+  name instead.
