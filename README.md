@@ -44,7 +44,7 @@ intentionally diverged since — see the history.
 
 ## Layout notes
 
-The resume is tuned to fit on exactly one page, with roughly 17pt of vertical
+The resume is tuned to fit on exactly one page, with roughly 7pt of vertical
 slack as of the latest content. If an addition pushes Technical Skills onto a
 second page, either trim content or reclaim space via the `\vspace` values in
 the custom commands near the top of `cbw_resume.tex` (`\resumeItem`,
